@@ -18,6 +18,23 @@ import numpy as np
 
 import streamlit as st
 from streamlit.hello.utils import show_code
+import pandas as pd
+import streamlit as st
+from streamlit_pdf_viewer import pdf_viewer
+
+
+
+document_dict = {
+    "Document_ID": ["-", "-", "-"],
+    "Document_Number": ["-", "-", "-"],
+    "Document_Name": ["-", "-", "-"],
+    "Location_Path": ["-", "-", "-"],
+    "Category": ["-", "-", "-"],
+    "Expiry_Date": ["-", "-", "-"],
+    "Classification_Level": ["-", "-", "-"],
+    "Time_Added": ["-", "-", "-"],
+}
+df_document = pd.DataFrame(document_dict)
 
 
 def plotting_demo():
@@ -42,15 +59,17 @@ def plotting_demo():
     st.button("Re-run")
 
 
-st.set_page_config(page_title="Plotting Demo", page_icon="📈")
-st.markdown("# Plotting Demo")
-st.sidebar.header("Plotting Demo")
+st.set_page_config(page_title="Document", page_icon="📄")
+st.markdown("# Document Demo")
+st.sidebar.header("Document Demo")
 st.write(
-    """This demo illustrates a combination of plotting and animation with
-Streamlit. We're generating a bunch of random numbers in a loop for around
-5 seconds. Enjoy!"""
+    """This page show you how can you interact and access your document page"""
 )
 
-plotting_demo()
+st.table(df_document)
 
-show_code(plotting_demo)
+pdf_viewer("documents/Resume-dakhilullah-darwisy.pdf")
+
+# plotting_demo()
+
+# show_code(plotting_demo)

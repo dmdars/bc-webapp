@@ -18,9 +18,26 @@ import numpy as np
 
 import streamlit as st
 from streamlit.hello.utils import show_code
+import pandas as pd
 
+user_dict = {
+    "User_ID": ["ajib", "kevin", "alfi"],
+    "Password": ["ajib1", "kevin2", "alfi3"],
+    "ID_Type": ["1", "2", "3"],
+    "ID_Number": ["1", "2", "3"],
+    "First_Name": ["ajib", "kevin", "alfi"],
+    "Last_Name": ["ajib", "kevin", "alfi"],
+    "Gender": ["M", "M", "M"],
+    "Birthdate": ["-", "-", "-"],
+    "Birthplace": ["-", "-", "-"],
+    "Nationality": ["-", "-", "-"],
+    "Address": ["-", "-", "-"],
+    "Email": ["-", "-", "-"],
+    "Phone_Number": ["-", "-", "-"],
+    }
+df_user = pd.DataFrame(user_dict)
 
-def animation_demo() -> None:
+def user_table() -> None:
 
     # Interactive Streamlit elements, like these sliders, return their value.
     # This gives you an extremely simple interaction model.
@@ -70,15 +87,15 @@ def animation_demo() -> None:
     st.button("Re-run")
 
 
-st.set_page_config(page_title="Animation Demo", page_icon="📹")
-st.markdown("# Animation Demo")
-st.sidebar.header("Animation Demo")
+st.set_page_config(page_title="User Page", page_icon="📹")
+st.markdown("# User Page")
+st.sidebar.header("User Page")
 st.write(
-    """This app shows how you can use Streamlit to build cool animations.
-It displays an animated fractal based on the the Julia Set. Use the slider
-to tune different parameters."""
+    """This page show you how can you interact and access your user page"""
 )
 
-animation_demo()
+st.table(df_user)
 
-show_code(animation_demo)
+# user_table()
+
+# show_code(user_table)
