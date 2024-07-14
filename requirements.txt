@@ -4,3 +4,6 @@ pandas
 pydeck
 streamlit
 streamlit-pdf-viewer
+psycopg2-binary
+bcrypt
+pycountry

@@ -1,3 +1,5 @@
 # BlockChain Data app by atmanku
 
-This is the main repo
+Please install the requirement first using
+
+pip install -r requirements.txt

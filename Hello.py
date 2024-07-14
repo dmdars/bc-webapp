@@ -16,30 +16,23 @@ import streamlit as st
 from streamlit.logger import get_logger
 import pandas as pd
 import numpy as np
+from streamlit import session_state as state
+import access_page
+import main
 
 LOGGER = get_logger(__name__)
 
 
-
 def run():
-    st.set_page_config(
-        page_title="Main",
-        page_icon="👋",
-    )
+    if 'page' not in state:
+        state.page = 'main'
 
-    st.write("# Welcome to Main User Interface! 👋")
-
-    st.sidebar.success("Select which table you can access.")
-
-    st.markdown(
-        """
-        Our app are dedicated to help fasten the registration process using blockchain powered apps
-        \n
-        👈 Select a page where your page has access to
-    """
-    )
-    
-    # st.table(df_user)
+    if 'access_notif_clicked' not in state:
+        state.access_notif_clicked = False
+    if state.page == 'main':
+        main.main()
+    elif state.page == 'access_page':
+        access_page.access_page()
 
 
 if __name__ == "__main__":
